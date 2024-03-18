@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSetImgMutation, useUpdateMutation } from "../slices/userApiSlice";
 import { setCredential } from "../slices/authSlices";
 import { toast } from "react-toastify";
-import { storage } from "./firebase/ConfiG";
+import { storage } from "./firebase/Config";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 function Profile() {

@@ -1,9 +1,17 @@
-import React from 'react'
 
-export default function App() {
+import { Outlet } from 'react-router-dom'
+import './App.css'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function App() {
+
   return (
-    <div>
-      <h1 className='font-bold'>Wellcome to my VocalizeManager</h1>
-    </div>
+    <>
+    <ToastContainer autoClose={2000}/>
+      <Outlet/>
+    </>
   )
 }
+
+export default App

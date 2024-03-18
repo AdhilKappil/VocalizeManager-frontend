@@ -1,11 +1,4 @@
 import React from "react";
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  Button,
-  IconButton,
-} from "@material-tailwind/react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useLogoutMutation } from "../slices/userApiSlice";
@@ -32,92 +25,62 @@ export function StickyNavbar() {
   };
 
   return (
-    <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
-      <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="#"
-          className="mr-4 cursor-pointer py-1.5 font-medium"
+    <nav className="sticky top-0 z-10 bg-white shadow-md p-4 lg:px-8 lg:py-4">
+      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+        <a
+          href="#" style={{fontStyle:'italic'}}
+          className="mr-4 cursor-pointer py-1.5 font-bold text-3xl"
         >
-          User Management 
-        </Typography>
+          Vocalize Manager
+        </a>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-x-1">
             {/* Profile Button */}
             <NavLink to={"/profile"}>
-              <Button variant="text" size="sm">
-                <span>Profile</span>
-              </Button>
+              <button className="text-nowrap font-bold text-black hover:underline focus:outline-none mr-5">
+                Profile
+              </button>
             </NavLink>
             {/* Log In Button */}
             <span>
-              { userInfo ? (
-                <span className="font-semibold text-sm mr-3">{userInfo.name}</span>
+              {userInfo ? (
+                <span className="ftext-nowrap font-bold mr-5">{userInfo.name}</span>
               ) : (
                 <NavLink to="/login">
-                  <Button  className="">
-                    <span>Log In</span>
-                  </Button>
+                  <button className="text-sm text-blue-600 hover:underline focus:outline-none">
+                    Log In
+                  </button>
                 </NavLink>
               )}
             </span>
 
             {/* Log Out Button */}
-            {userInfo &&  <Button onClick={logoutHandler} variant="gradient" size="sm">
-              <span>Log Out</span>
-            </Button>}
+            {userInfo &&  <button onClick={logoutHandler} className="h-8 w-20 hover:bg-red-700 bg-black rounded-lg text-white hover:scale-105">
+              Log Out 
+            </button>}
           </div>
-          <IconButton
-            variant="text"
-            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-            ripple={false}
+          <button
+            className="ml-auto h-6 w-6 text-blue-gray-900 hover:text-blue-600 focus:outline-none lg:hidden"
             onClick={() => setOpenNav(!openNav)}
           >
-            {openNav ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                className="h-6 w-6"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
-          </IconButton>
+           
+          </button>
         </div>
       </div>
-      <MobileNav open={openNav}>
-        <div className="flex items-center gap-x-1">
-          <NavLink to={"/login"}>
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
-          </NavLink>
-          <Button fullWidth variant="gradient" size="sm" className="">
-            <span>LogOut</span>
-          </Button>
+      {openNav && (
+        <div className="container mx-auto py-2 lg:hidden">
+          <div className="flex items-center gap-x-1">
+            <NavLink to={"/login"}>
+              <button className="text-sm text-blue-600 hover:underline focus:outline-none">
+                Log In
+              </button>
+            </NavLink>
+            <button onClick={logoutHandler} className="text-sm text-white bg-gradient-to-r from-blue-500 to-indigo-500 px-4 py-2 rounded-md">
+              Log Out
+            </button>
+          </div>
         </div>
-      </MobileNav>
-    </Navbar>
+      )}
+    </nav>
   );
 }
