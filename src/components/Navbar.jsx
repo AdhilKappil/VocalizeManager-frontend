@@ -27,12 +27,14 @@ export function StickyNavbar() {
   return (
     <nav className="sticky top-0 z-10 bg-white shadow-md p-4 lg:px-8 lg:py-4">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+        <NavLink to={"/"}>
         <a
           href="#" style={{fontStyle:'italic'}}
           className="mr-4 cursor-pointer py-1.5 font-bold text-3xl"
         >
           Vocalize Manager
         </a>
+        </NavLink>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-x-1">
             {/* Profile Button */}

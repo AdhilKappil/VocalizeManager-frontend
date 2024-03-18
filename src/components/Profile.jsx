@@ -6,6 +6,7 @@ import { setCredential } from "../slices/authSlices";
 import { toast } from "react-toastify";
 import { storage } from "./firebase/Config";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { StickyNavbar } from "./Navbar";
 
 function Profile() {
 
@@ -129,11 +130,12 @@ function Profile() {
   };
 
   return (
-    <div>
-      <div className="w-full flex justify-center">
-        <h1 className="mb-5 text-3xl  font-bold mt-24 absolute">Profile</h1>
+    <div >
+      <StickyNavbar/>
+      <div className="w-full flex justify-center ">
+        <h1 className="text-3xl  font-bold absolute mt-5">Profile</h1>
       </div>
-      <div className="flex justify-center h-svh items-center">
+      <div className="flex justify-center items-center mt-20">
         <div className=" w-3/5 flex rounded-md border-2 shadow-md max-md:grid max-md:w-4/5 max-sm:w-full  bg-white">
           <div className="w-1/2 grid items-center justify-center">
             <div className="flex">
@@ -197,7 +199,7 @@ function Profile() {
                 placeholder="Confirm Password"
                 type="password"
                 className="rounded-md border w-full border-blue-gray-200 px-3 py-3 font-sans text-sm font-normal  outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-cyan-500"
-              />
+              /> 
             </div>
             <div>
               <button

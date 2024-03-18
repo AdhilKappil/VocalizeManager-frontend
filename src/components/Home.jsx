@@ -39,31 +39,30 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <StickyNavbar />
-      <div className='w-full h-32'></div>
+      <div style={{ background: 'linear-gradient(45deg, #010758, #490d61)'}} className='h-screen'>
+        <StickyNavbar />
       <div className='w-full flex justify-center'>
         <div>
           <div className='flex flex-col justify-center items-center mt-[50px]'>
-            <h1 className=' textClass'>
-              Text Audio <span className='font-bold'>Converter</span>
+            <h1 className='text-white' style={{fontSize:'45px', fontWeight:'500px'}}>
+              Text To Speech <span style={{color:'#ff2963'}}>Converter</span>
             </h1>
-            <textarea
-              className='textarea border rounded-md h-[400px]  bg-cyan-900 p-3 text-yellow-50'
+            <textarea style={{background:'#403d84'}}
+              className='textarea rounded-md h-[250px] w-[500px] p-3 text-yellow-50 mt-10 outline-none'
               type='text'
               placeholder='Type your text....'
               value={textToSpeak}
               onChange={(e) => setTextToSpeak(e.target.value)}
             ></textarea><br />
           </div>
-          <div className='flex justify-center'>
-            <select className='select rounded' onChange={handleSelectChange}>
+          <div className='flex justify-center space-x-8 mt-4'>
+            <select className='select rounded-2xl text-white' onChange={handleSelectChange} style={{background:'#403d84'}}>
               {voices.map((voice, index) => (
                 <option key={index} value={index}>{voice.name}</option>
               ))}
             </select>
-            <button className='bg-cyan-800 text-white p-2 rounded w-[70px] flex' onClick={handleClick}>
-              <span className="pr-1 pt-1"><FaPlay /></span>Play
+            <button style={{background:'#ff2963'}} className=' text-white p-2 rounded-2xl w-[100px] flex' onClick={handleClick}>
+              <span className="pr-1 pt-1"><FaPlay /></span>Listen
             </button>
           </div>
         </div>
