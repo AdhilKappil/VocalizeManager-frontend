@@ -130,13 +130,13 @@ function Profile() {
   };
 
   return (
-    <div >
+    <div className="h-screen bg-gray-50">
       <StickyNavbar/>
       <div className="w-full flex justify-center ">
-        <h1 className="text-3xl  font-bold absolute mt-5">Profile</h1>
+        <h1 className="text-3xl text-black font-bold absolute mt-10 font-serif">Profile</h1>
       </div>
-      <div className="flex justify-center items-center mt-20">
-        <div className=" w-3/5 flex rounded-md border-2 shadow-md max-md:grid max-md:w-4/5 max-sm:w-full  bg-white">
+      <div className="flex justify-center items-center mt-32" >
+        <div className=" w-3/5 flex rounded-md max-md:grid max-md:w-4/5 max-sm:w-full" style={{background: 'rgb(233,237,237)'}}>
           <div className="w-1/2 grid items-center justify-center">
             <div className="flex">
               <input
@@ -153,7 +153,7 @@ function Profile() {
                 alt="Profile"
               />
             </div>
-              <button onClick={saveimage}  className="h-10 ml-20 w-20 hover:bg-green-500 bg-black rounded-lg text-white hover:scale-105">
+              <button onClick={saveimage}  className="h-10 ml-20 w-20 bg-gradient-to-tr from-cyan-600 to-cyan-400 rounded-lg text-white hover:shadow-lg hover:shadow-cyan-500/40">
                 save
               </button>
           </div>
@@ -199,7 +199,7 @@ function Profile() {
                 placeholder="Confirm Password"
                 type="password"
                 className="rounded-md border w-full border-blue-gray-200 px-3 py-3 font-sans text-sm font-normal  outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-cyan-500"
-              /> 
+              />
             </div>
             <div>
               <button

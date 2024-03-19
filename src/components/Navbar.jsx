@@ -32,7 +32,7 @@ export function StickyNavbar() {
           href="#" style={{fontStyle:'italic'}}
           className="mr-4 cursor-pointer py-1.5 font-bold text-3xl"
         >
-          Vocalize Manager
+          VocalizeManager
         </a>
         </NavLink>
         <div className="flex items-center gap-4">
@@ -49,7 +49,7 @@ export function StickyNavbar() {
                 <span className="ftext-nowrap font-bold mr-5">{userInfo.name}</span>
               ) : (
                 <NavLink to="/login">
-                  <button className="text-sm text-blue-600 hover:underline focus:outline-none">
+                  <button className="h-8 w-20 hover:bg-blue-500 bg-black rounded-lg text-white hover:scale-105">
                     Log In
                   </button>
                 </NavLink>

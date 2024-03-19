@@ -8,7 +8,7 @@ export default defineConfig({
     port: 8000,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://vocalizemanager-backend-1.onrender.com',
         changeOrigin: true,
       },
     },
