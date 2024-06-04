@@ -1,5 +1,5 @@
 import { apiSlice } from './apiSlice';
-const ADMIN_URL = '/api/admin';
+const ADMIN_URL = 'https://vocalizemanager-backend.onrender.com/api/admin';
 
 
 export const adminApiSlice = apiSlice.injectEndpoints({
@@ -9,14 +9,16 @@ export const adminApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: `${ADMIN_URL}/auth`,
         method: 'POST',
-        body: data
+        body: data,
+        credentials: "include",
       })
     }),
 
     adminLogout: builder.mutation({
       query: () => ({
         url: `${ADMIN_URL}/logout`,
-        method: 'POST'
+        method: 'POST',
+        credentials: "include",
       })
     }),
 
@@ -24,6 +26,7 @@ export const adminApiSlice = apiSlice.injectEndpoints({
       query: () => ({
         url: `${ADMIN_URL}/users`,
         method: 'GET',
+        credentials: "include",
       })
     }),
 
@@ -31,6 +34,7 @@ export const adminApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: `${ADMIN_URL}/users/delete?id=${data}`,
         method: 'DELETE',
+        credentials: "include",
       })
     }),
 
@@ -39,7 +43,8 @@ export const adminApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: `${ADMIN_URL}/users/update-user`,
         method: 'PUT',
-        body: data
+        body: data,
+        credentials: "include",
       })
     }),
 
@@ -47,6 +52,7 @@ export const adminApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: `${ADMIN_URL}/users/unblock-block?id=${data}`,
         method: 'PATCH',
+        credentials: "include",
       })
     })
 

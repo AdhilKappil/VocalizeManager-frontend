@@ -1,6 +1,6 @@
 import {apiSlice} from './apiSlice'
 
-const USER_URL = '/api/users';
+const USER_URL = 'https://vocalizemanager-backend.onrender.com/api/users';
 
 export const userApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
@@ -8,14 +8,16 @@ export const userApiSlice = apiSlice.injectEndpoints({
             query: (data)=>({
                 url: `${USER_URL}/auth`,
                 method: 'POST',
-                body: data
+                body: data,
+                credentials: "include",
             })
         }),
 
         logout: builder.mutation({
             query: ()=>({
                 url: `${USER_URL}/logout`,
-                method: 'POST'
+                method: 'POST',
+                credentials: "include",
             })
         }),
 
@@ -24,6 +26,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
               url: `${USER_URL}`,
               method: 'POST',
               body: data,
+              credentials: "include",
             }),
           }),
 
@@ -32,6 +35,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
               url: `${USER_URL}/profile`,
               method: 'PUT',
               body: data,
+              credentials: "include",
             }),
           }),
 
@@ -40,6 +44,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
               url: `${USER_URL}/addProfile`,
               method: 'POST', // Corrected method to POST
               body: data,
+              credentials: "include",
             }), 
           }),
           
